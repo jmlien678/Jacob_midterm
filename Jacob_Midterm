@@ -1,0 +1,62 @@
+Counter mycntr;
+int bla = 0;
+int blaa = 0;
+
+void setup() {
+  size(1000, 1000);
+  mycntr = new Counter();
+}
+
+void draw() {
+  background(0); 
+
+  mycntr.display();
+  mycntr.MousePressed();
+}
+
+class Counter {
+
+
+  Counter() {
+  }  
+
+  void display() {
+    noStroke();
+    textSize(40); 
+    textAlign(CENTER);        
+    fill(237, 28, 36);
+
+    text ("Player 1 Mouse Clicks:  "+begin(bla), 350, 350);
+    text ("Player 2 Mouse Clicks:  "+begin(blaa), 350, 450);
+  }
+
+  void MousePressed() {
+    if (mousePressed && (mouseButton == LEFT)) {
+      bla++;
+      delay(110);
+      
+      //  This is where I would put in an if statement to make the counter start over if it hits 50...and put a fun message saying player 1 is the best
+      // Don't hold down the mouse...cause if you do...you're a cheater
+      
+      
+    } else if (mousePressed && (mouseButton == RIGHT)) {
+      blaa++;
+      delay(110);
+      //  This is where I would put in an if statement to make the counter start over if it hits 50...and put a fun message saying player 2 is the best
+      // Don't hold down the mouse...cause if you do...you're a cheater
+      
+    }
+    
+    
+  }
+
+  String begin(int a) {
+    String jacob;
+    //New string that I'm going to use
+    jacob = nf (a, 1);
+    // formatting numbers into strings.
+    return(jacob);
+    
+    
+  }
+}
